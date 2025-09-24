@@ -176,6 +176,8 @@ $ ls -l /dev/net/tun
 ```
 ### Automation in new terminal session 
 > kali_privs.sh
+
+![kali_privs](assets/kali_privs.png)
 ```sh
 #!/bin/bash
 
