@@ -208,9 +208,7 @@ echo -e "${YELLOW}Success..${NC}"
 sleep 1.5
 ```
 
-### New Terminal Session
-> [!NOTE]
-> Github codespace terminal
+### Manual Terminal Session
 ```bash
 $ docker exec -it <container_id> /bin/bash
 ```
