@@ -30,13 +30,13 @@
 GitHub Codespaces allows developers and hackers to create and utilize their coding environments directly from GitHub in the cloud. As a CTF player or pentester, you can also leverage GitHub Codespaces similarly to a VPS (Virtual Private Server). This makes it easy to work on projects from anywhere with the flexibility of a portable development setup using Docker.
 
 ## 📚 Table of Contents
-- 📜 [Description](#-description)
+- 📜 [Description](#description)
 - 🔥 [What's Nice](#whats-nice)
-- 🐳 [Installation](#-installation)
-- 🙍🏻‍♂️ [Configuration](#-configuration)
-- 📟 [Github CLI](#-gh)
-- 🚫 [Temporarily Disabled](#-temporarily-disabled)
-- 👨🏾‍⚖️ [License](#-license)
+- 🐳 [Installation](#installation)
+- 🙍🏻‍♂️ [Configuration](#configuration)
+- 📟 [Github CLI](#github-cli)
+- 🚫 [Temporarily Disabled](#temporarily-disabled)
+- 👨🏾‍⚖️ [License](#license)
 
  
 ## 🔥 What's Nice
