@@ -204,7 +204,7 @@ $ docker exec -it <container_id> /bin/bash
 
 ## Adding Graphical User Interface (noVNC)
 > [!IMPORTANT]
-> Run this script in the terminal of your Github Codespace, which is using Ubuntu OS
+> Run this script in the terminal of your Github Codespace
 
 > setup-noVNC.sh 
 ```sh
@@ -302,7 +302,7 @@ vncserver -geometry 1920x1080
 
 echo -e "${GREEN}noVNC server started on port ${WHITE}$LISTEN_PORT${WHITE}, forwarding to localhost:${WHITE}$LOCAL_PORT${NC}
 ```
-## SSH over Ngrok
+## Option 1: SSH over Ngrok
 ### Adding password to root user
 > Github codespace terminal 
 ```bash
@@ -335,8 +335,9 @@ root㉿434e150c83343:~# cat ngrok_rsa.pub > /root/.ssh/authorized_keys
 ```
 
 ### Ngrok Installation and config
-> Github codespace terminal
+> server side (codespace)
 ```bash
+# download and install
 $ curl -sSL https://ngrok-agent.s3.amazonaws.com/ngrok.asc \
 	| sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null \
 	&& echo "deb https://ngrok-agent.s3.amazonaws.com buster main" \
@@ -345,9 +346,11 @@ $ curl -sSL https://ngrok-agent.s3.amazonaws.com/ngrok.asc \
 	&& sudo apt install ngrok
 ```
 ```bash
+# paste your authtoken
 $ ngrok config add-authtoken <your_authtoken>
 ```
 ```bash
+# start ssh via tcp
 $ ngrok tcp 22
 ```
 > It should be like this
@@ -367,16 +370,15 @@ Forwarding                    tcp://8.tcp.ngrok.io:32325 -> localhost:22
 Connections                   ttl     opn     rt1     rt5     p50     p90                      
                               1       1       0.00    0.00    940.60  940.60 
 ```
-### Kali terminal
-> copy the private key to your kali termianl for example
+### Client side 
 ```bash
-$ chmod +x ngrok_rsa
+$ chmod 600 ~/.ssh/ngrok_rsa
 
-$ ssh -i ngrok_rsa root@8.tcp.ngrok.io -p 32325
+$ ssh -i ~/.ssh/ngrok_rsa root@8.tcp.ngrok.io -p 32325
 ```
 
-## Github CLI
-> In your kali terminal or attacker machine side 
+## Option 2: Github CLI
+> Using SSH via ngrok can be time-consuming. You can simplify the process by using the GitHub CLI instead. 
 ```bash
 # update and install gh cli
 sudo apt update && sudo apt install gh -y
