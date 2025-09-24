@@ -34,6 +34,7 @@ GitHub Codespaces allows developers and hackers to create and utilize their codi
 - 🔥 [What's Nice](#whats-nice)
 - 🐳 [Installation](#-installation)
 - 🙍🏻‍♂️ [Configuration](#-configuration)
+- 📟 [Github CLI](#-gh)
 - 🚫 [Temporarily Disabled](#-temporarily-disabled)
 - 👨🏾‍⚖️ [License](#-license)
 
@@ -372,6 +373,51 @@ Connections                   ttl     opn     rt1     rt5     p50     p90
 $ chmod +x ngrok_rsa
 
 $ ssh -i ngrok_rsa root@8.tcp.ngrok.io -p 32325
+```
+
+## Github CLI
+> In your kali terminal or attacker machine side 
+```bash
+# update and install gh cli
+sudo apt update && sudo apt install gh -y
+
+# Authenticate github cli 
+gh auth login
+
+? What account do you want to log into?  [Use arrows to move, type to filter]
+> GitHub.com
+  GitHub Enterprise Server
+
+# select Github.com
+? What is your preferred protocol for Git operations on this host?  [Use arrows to move, type to filter]
+> HTTPS
+  SSH
+
+# select HTTPS
+? How would you like to authenticate GitHub CLI?  [Use arrows to move, type to filter]
+> Login with a web browser
+  Paste an authentication token
+
+# select Web browser 
+! First copy your one-time code: FB82-C056
+Press Enter to open github.com in your browser... 
+
+# press enter and paste the OTP in your browser
+gh codespace list | less
+
+# copy codespace id for e.g codespace-id-34v9xp67944jvcw43
+gh codespace ssh --codespace codespace-id-34v9xp67944jvcw43
+```
+#### Output 
+```bash
+Welcome to Ubuntu 24.04.2 LTS (GNU/Linux 6.8.0-1030-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+Last login: Wed Sep 24 15:16:22 2025 from ::1
+@l0n3m4n ➜ /workspaces/github-vps (main) $ 
+
 ```
 
 ## 🚫 Temporarily Disabled 
