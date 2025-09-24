@@ -184,13 +184,24 @@ GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
 NC='\033[0m'
 
-# Checking Kali-linux docker ID
-kali_id=$(docker ps -a -q)
+# Get Kali Linux Docker container ID (grabbing the first one if multiple are present)
+kali_id=$(docker ps -a -q | head -n 1)
 bash='/bin/bash'
 
-echo -e '${YELLOW}Starting another terminal kali privs${NC}'
-docker start $kali_id
-docker exec -it $kali_id $bash
+echo -e "${YELLOW}Starting another terminal kali privs${NC}"
+
+# Start the container if not running
+if ! docker start $kali_id; then
+    echo -e "${RED}Failed to start container${NC}"
+    exit 1
+fi
+
+# Execute bash inside the container
+if ! docker exec -it $kali_id $bash; then
+    echo -e "${RED}Failed to execute bash in container${NC}"
+    exit 1
+fi
+
 echo -e "${YELLOW}Success..${NC}"
 sleep 1.5
 ```
