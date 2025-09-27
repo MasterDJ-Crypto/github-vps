@@ -311,7 +311,8 @@ websockify -D --web="$WEB_DIR" --cert="$CERT_FILE" $LISTEN_PORT localhost:$LOCAL
 echo -e "${YELLOW} Starting novncserver${NC}"
 vncserver -geometry 1920x1080
 
-echo -e "${GREEN}noVNC server started on port ${WHITE}$LISTEN_PORT${WHITE}, forwarding to localhost:${WHITE}$LOCAL_PORT${NC}
+echo -e "${GREEN}noVNC server started on port ${WHITE}$LISTEN_PORT${NC}, forwarding to localhost:${WHITE}$LOCAL_PORT${NC}. Starting noVNC to enable web-based VNC access..."
+
 ```
 ## Option 1: SSH over Ngrok
 ### Adding password to root user
