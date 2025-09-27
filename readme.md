@@ -421,6 +421,9 @@ gh codespace list | less
 
 # copy codespace id for e.g codespace-id-34v9xp67944jvcw43
 gh codespace ssh --codespace codespace-id-34v9xp67944jvcw43
+
+# view github codespace info
+gh codespace view -c ubuntu-space-doodle-blahblah
 ```
 #### Output 
 ```bash
