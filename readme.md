@@ -389,7 +389,7 @@ $ chmod 600 ~/.ssh/ngrok_rsa
 $ ssh -i ~/.ssh/ngrok_rsa root@8.tcp.ngrok.io -p 32325
 ```
 
-## Option 2: Github CLI
+## Github CLI
 > Using SSH via ngrok can be time-consuming. You can simplify the process by using the GitHub CLI instead. 
 ```bash
 # update and install gh cli
