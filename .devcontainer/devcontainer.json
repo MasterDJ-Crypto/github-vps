@@ -1,4 +1,11 @@
 {
   "name": "github-vps",
-  "forwardPorts": [6080]
+  "forwardPorts": [6080],
+  "portsAttributes": {
+    "6080": {
+      "label": "noVNC (noVNC/websockify)",
+      "visibility": "public",
+      "onAutoForward": "notify"
+    }
+  }
 }
