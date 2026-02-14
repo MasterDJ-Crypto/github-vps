@@ -75,4 +75,4 @@ echo "    4) Click Connect and enter your VNC password."
 
 echo
 echo "[*] Open this URL in your browser (Codespaces will map it automatically):"
-echo "    http://localhost:6080/vnc_auto.html"
+echo "    https://jubilant-cod-vx5v56q4qqpfpw9r-6080.app.github.dev/vnc.html"
