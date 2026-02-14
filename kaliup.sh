@@ -67,6 +67,11 @@ docker exec -it "$NAME" bash -lc '
 '
 
 echo
+# Keepalive removed: GitHub Codespaces ignores local background-only processes for "activity".
+# Use the repository GitHub Action `.github/workflows/codespace-keepalive.yml` to
+# periodically curl the public Codespace URL instead (action added to this repo).
+
+echo
 echo "[*] In GitHub Codespaces:"
 echo "    1) Open the PORTS panel."
 echo "    2) Set port 6080 to Public (globe icon)."

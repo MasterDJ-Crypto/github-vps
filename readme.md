@@ -314,6 +314,17 @@ vncserver -geometry 1920x1080
 echo -e "${GREEN}noVNC server started on port ${WHITE}$LISTEN_PORT${NC}, forwarding to localhost:${WHITE}$LOCAL_PORT${NC}. Starting noVNC to enable web-based VNC access..."
 
 ```
+
+### Keep Codespace awake (recommended)
+If your Codespace is stopped due to "inactivity", use a lightweight external ping to a public forwarded port. This repository includes a GitHub Actions workflow that periodically curls your Codespace public URL to simulate user activity.
+
+How to use:
+1. Make sure `6080` (or your noVNC port) is set to **Public** in the Codespaces PORTS panel.
+2. Add a repository secret named `CODESPACE_KEEPALIVE_URL` containing the public Codespace URL (example: `https://<your-codespace>-6080.app.github.dev/vnc_auto.html`).
+3. The workflow `.github/workflows/codespace-keepalive.yml` (added to this repo) will ping that URL on a 5‑minute schedule.
+
+Note: this method is practical and simple but not officially guaranteed — Codespaces idle policies can still apply.
+
 ## Option 1: SSH over Ngrok
 ### Adding password to root user
 > Github codespace terminal 
